@@ -1,0 +1,8 @@
+<h1>Post</h1>
+<%= from_for posts_path, method: :post do |f| %>
+<% end %>
+<% @posts.each do |post| %>
+  <%= post.user_id %>
+  <%= link_to post.description, post_path(post) %>
+  <%= link_to "Vote", votes_path(post_id: post.id, user_id: current_user.id), method: :post, class: 'btn' %>
+<% end %>
